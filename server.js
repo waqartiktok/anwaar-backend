@@ -10,7 +10,9 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const server = http.createServer(app);
-
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
 connectDB();
 app.use(cors());
 app.use(express.json());
